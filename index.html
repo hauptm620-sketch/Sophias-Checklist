@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia's Checkliste'</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img src="img/fox.jpg" class="background-img" />
+    </header>
+    <main>
+      <section class="card">
+        <article class="project-card" data-category="js">
+          <h3>Was brauche ich wenn ich wo anderes schlafe?</h3>
+          <!-- NEU: Eingabefeld und Button für neue Aufgaben -->
+          <div class="input-container">
+            <input
+              type="text"
+              id="todo-input"
+              placeholder="Was brauche Ich..."
+              maxlength="30"
+            />
+            <button id="add-btn">+</button>
+          </div>
+          <!-- NEU: Die leere Liste, die das JavaScript später befüllt -->
+          <ul id="todo-list"></ul>
+        </article>
+      </section>
+    </main>
+    <footer>(c) Erstellt vom Miche</footer>
+  </body>
+</html>
