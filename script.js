@@ -3,6 +3,22 @@ document.addEventListener("DOMContentLoaded", init);
 const STORAGE_KEY = "sophiasTodos";
 const SWIPE_DELETE_THRESHOLD = -80;
 const MAX_SWIPE = -100;
+const DEFAULT_TODOS = [
+  {text:"Kuscheltier", checked: false},
+  {text:"Unterhosen", checked: false},
+  {text:"T-Shirts", checked: false},
+  {text:"Socken", checked: false},
+  {text:"Hose ( kurz | lang )", checked: false},
+  {text:"Pulli", checked: false},
+  {text:"Kamm", checked: false},
+  {text:"Zahnbürste | Zahnpasta", checked: false},
+  {text:"Toniebox | Ladekabel | Figuren", checked: false},
+  {text:"Haargummi | Haarreif | Haarspange", checked: false},
+  {text:"Deo", checked: false},
+  {text:"UNO", checked: false},
+  {text:"Labello", checked: false},
+  {text:"Spielzeug", checked: false}
+];
 
 let todos = [];
 
@@ -37,14 +53,18 @@ function bindEvents() {
 
 function loadTodos() {
   try {
-    todos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const costomTodos = saved ? JSON.parse(saved) : [];
+    todos = [...DEFAULT_TODOS, ...customTodos];
+    /*todos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];*/
   } catch {
-    todos = [];
+    todos = [...DEFAULT_TODOS];
   }
 }
 
 function saveTodos() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  const customTodos = todos.filter(todo => !DEFAULT_TODOS.some(defaultTodo => defaultTodo.text === todo.text));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(customTodos));
 }
 
 function addTodo() {
