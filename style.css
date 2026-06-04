@@ -62,6 +62,7 @@ main{
 h3 {
 color: rgb(255, 255, 255);
 font-size: 16px;
+margin-top:10px;
 }
 .card {
   display: flex;
@@ -76,11 +77,11 @@ font-size: 16px;
     0px 6px 15px rgba(32, 29, 29, 0.103),
     0px 10px 24px rgba(32, 29, 29, 0.08);
   position: absolute;
-  top: 70%; /* KORRIGIERT auf 50% für vertikale Mitte */
+  top: 50%; /* KORRIGIERT auf 50% für vertikale Mitte */
   left: 20px;
   right: 20px;
   transform: translateY(-50%);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
   border-radius: 8px;
   padding: 24px;
   text-align: center;
